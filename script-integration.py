@@ -39,6 +39,10 @@ def create_table():
 
     return jsonify({"status": "success", "message": "Tables checked/created successfully!"}), 200
 
+@app.route('/tellme', methods=['GET'])
+def return_response():
+    return jsonify({"status": "success", "message": "Hello, I'm alive!"}), 200
+
 @app.route('/update', methods=['GET'])
 def update_data():
     # Obtém a data do dia anterior
