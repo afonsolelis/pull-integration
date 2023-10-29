@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  metabase:
+    image: metabase/metabase:latest
+    ports:
+      - "3000:3000"
+    environment:
+      MB_DB_TYPE: h2
+      MB_DB_FILE: /metabase-data/metabase.db
+      MB_EB_PASSWORD: admin
+    volumes:
+      - metabase-data:/metabase-data
+      - ./local_database.db:/metabase-sqlite/local_database.db
+
+volumes:
+  metabase-data:
